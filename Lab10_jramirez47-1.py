@@ -19,6 +19,11 @@ class WordAnalyzer:
             with self.file_path.open() as f:
                 lines = f.readlines()
                 for line in lines:
+                    for punc in punc_tuple:
+                        if punc == "-" or punc == "_":
+                            line = line.replace(punc, " ")
+                        else:
+                            line = line.replace(punc, "")
                     print(line)
 
 path = WordAnalyzer("random.txt")
