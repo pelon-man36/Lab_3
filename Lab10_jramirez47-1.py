@@ -11,6 +11,7 @@ import json
 class WordAnalyzer:
     def __init__(self, file_path):
         self.file_path = Path(file_path)
+        self.__dict = {}
 
     def process_file(self):
         content = self.file_path.exists()
@@ -37,10 +38,16 @@ class WordAnalyzer:
                             empty_dict[word] += 1
                         else:
                             empty_dict[word] = 1
+            self.__dict = empty_dict
             return True
         else:
             return False
 
+    def print_report(self):
+        sorted_dict = sorted(self.__dict.keys())
+        print(sorted_dict)
+
 path = WordAnalyzer("random.txt")
 path.process_file()
+path.print_report()
     
