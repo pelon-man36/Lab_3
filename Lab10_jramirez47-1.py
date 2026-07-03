@@ -14,7 +14,11 @@ class WordAnalyzer:
 
     def process_file(self):
         content = self.file_path.exists()
-        
+        if content:
+            with self.file_path.open() as f:
+                lines = f.readlines()
+                for line in lines:
+                    print(line)
 
 path = WordAnalyzer("random.txt")
 path.process_file()
