@@ -51,20 +51,39 @@ class WordAnalyzer:
 def main():
     files = {1: "monte_cristo.txt", 2: "princess_mars.txt", 3: "Tarzan.txt", 4: "treasure_island.txt"}
     opt_out = True
-    while opt_out:
-        try:
-            option = int(input("Select a file to analyze (1-4): "))
-            if option <= 0 or option >= 5:
-                raise KeyError
-        except ValueError, KeyError:
-            print("Invalid option.")
-            continue
-        else:
-            print(files[option])
-            opt_out = False
-    path = WordAnalyzer(files[option])
-    path.process_file()
-    path.print_report()
+    opt_cont = True
+
+    while opt_cont:
+        opt_again = True
+        while opt_out:
+            try:
+                option = int(input("Select a file to analyze (1-4): "))
+                if option <= 0 or option >= 5:
+                    raise KeyError
+            except ValueError, KeyError:
+                print("Invalid option.")
+                continue
+            else:
+                print(files[option])
+                opt_out = False
+        path = WordAnalyzer(files[option])
+        path.process_file()
+        path.print_report()
+
+        while opt_again:
+            try:
+                option = input("Would you like to analyze another file? (y/n): ")
+                if option.lower() == "n":
+                    opt_again = False
+                    opt_cont = False
+                elif option.lower() == "y":
+                    opt_again = False
+                    opt_out = True
+                else:
+                    raise ValueError
+            except ValueError:
+                print("Invalid option.")
+            
 
 
 #path = WordAnalyzer("random.txt")
