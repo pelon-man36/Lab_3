@@ -14,6 +14,11 @@ class WordAnalyzer:
 
     def process_file(self):
         content = self.file_path.exists()
+        try:
+            if not content:
+                raise FileNotFoundError
+        except FileNotFoundError:
+            print(f"The file {self.file_path} wasn't found.")
         empty_dict = {}
         punc_tuple = (".", ",", "!", "?", ";", ":", "-", "_", "'", '"', "(", ")", "[", "]", "{", "}", "/", "\\")
         if content:
@@ -34,6 +39,6 @@ class WordAnalyzer:
                             empty_dict[word] = 1
                 print(empty_dict)
 
-path = WordAnalyzer("random.txt")
+path = WordAnalyzer("rando.txt")
 path.process_file()
     
