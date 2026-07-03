@@ -21,7 +21,7 @@ class WordAnalyzer:
         except FileNotFoundError:
             print(f"The file {self.file_path} wasn't found.")
         empty_dict = {}
-        punc_tuple = (".", ",", "!", "?", ";", ":", "-", "_", "'", '"', "(", ")", "[", "]", "{", "}", "/", "\\")
+        punc_tuple = (".", ",", "!", "?", ";", ":", "-", "_", "'", '"', "(", ")", "[", "]", "{", "}", "/", "\\", "—", "‘", "†", "•", '”', '“', "’")
         if content:
             with self.file_path.open() as f:
                 lines = f.readlines()
