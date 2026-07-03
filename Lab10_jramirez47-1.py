@@ -14,6 +14,7 @@ class WordAnalyzer:
 
     def process_file(self):
         content = self.file_path.exists()
+        empty_dict = {}
         punc_tuple = (".", ",", "!", "?", ";", ":", "-", "_", "'", '"', "(", ")", "[", "]", "{", "}", "/", "\\")
         if content:
             with self.file_path.open() as f:
@@ -25,7 +26,13 @@ class WordAnalyzer:
                         else:
                             line = line.replace(punc, "")
                     line = line.lower()
-                    print(line)
+                    line = line.split()
+                    for word in line:
+                        if word in empty_dict:
+                            empty_dict[word] += 1
+                        else:
+                            empty_dict[word] = 1
+                print(empty_dict)
 
 path = WordAnalyzer("random.txt")
 path.process_file()
