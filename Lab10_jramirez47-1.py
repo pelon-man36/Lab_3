@@ -45,7 +45,9 @@ class WordAnalyzer:
 
     def print_report(self):
         sorted_dict = sorted(self.__dict.keys())
-        print(sorted_dict)
+        for key in sorted_dict:
+            print(f"{key} :: {self.__dict[key]}")
+
 
 path = WordAnalyzer("random.txt")
 path.process_file()
