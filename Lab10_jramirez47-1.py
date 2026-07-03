@@ -24,6 +24,7 @@ class WordAnalyzer:
                             line = line.replace(punc, " ")
                         else:
                             line = line.replace(punc, "")
+                    line = line.lower()
                     print(line)
 
 path = WordAnalyzer("random.txt")
