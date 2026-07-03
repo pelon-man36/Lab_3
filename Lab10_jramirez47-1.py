@@ -47,28 +47,41 @@ class WordAnalyzer:
         sorted_dict = sorted(self.__dict.keys())
         for key in sorted_dict:
             print(f"{key} :: {self.__dict[key]}")
+        print()
 
 def main():
     files = {1: "monte_cristo.txt", 2: "princess_mars.txt", 3: "Tarzan.txt", 4: "treasure_island.txt"}
+    clean_files = {1: "Monte Cristo", 2: "Princess Mars", 3: "Tarzan", 4: "Treasure Island"}
     opt_out = True
     opt_cont = True
 
     while opt_cont:
         opt_again = True
+        print("-- Word Analyzer --")
+        print("Select a file to analyze:\n")
+        for key in clean_files:
+            print(f"{key}. {clean_files[key]}")
+        print("5. Exit")
+
         while opt_out:
             try:
-                option = int(input("Select a file to analyze (1-4): "))
-                if option <= 0 or option >= 5:
+                option = int(input("Select a file to analyze (1-5): "))
+                if option <= 0 or option >= 6:
                     raise KeyError
             except ValueError, KeyError:
-                print("Invalid option.")
+                print("Invalid option.\n")
                 continue
             else:
-                print(files[option])
-                opt_out = False
-        path = WordAnalyzer(files[option])
-        path.process_file()
-        path.print_report()
+                if option == 5:
+                    opt_out = False
+                    opt_cont = False
+                    opt_again = False
+                else:
+                    print(files[option])
+                    opt_out = False
+                    path = WordAnalyzer(files[option])
+                    path.process_file()
+                    path.print_report()
 
         while opt_again:
             try:
@@ -82,7 +95,7 @@ def main():
                 else:
                     raise ValueError
             except ValueError:
-                print("Invalid option.")
+                print("Invalid option.\n")
             
 
 
