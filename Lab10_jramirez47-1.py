@@ -49,7 +49,8 @@ class WordAnalyzer:
             print(f"{key} :: {self.__dict[key]}")
 
 def main():
-    
+    files = {"monte_cristo.txt", "princess_mars.txt", "treasure_island.txt", "Tarzan.txt"}
+
 
 path = WordAnalyzer("random.txt")
 path.process_file()
