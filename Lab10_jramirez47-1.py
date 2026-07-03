@@ -62,6 +62,9 @@ def main():
         else:
             print(files[option])
             opt_out = False
+    path = WordAnalyzer(files[option])
+    path.process_file()
+    path.print_report()
 
 
 #path = WordAnalyzer("random.txt")
