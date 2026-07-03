@@ -50,14 +50,18 @@ class WordAnalyzer:
 
 def main():
     files = {1: "monte_cristo.txt", 2: "princess_mars.txt", 3: "Tarzan.txt", 4: "treasure_island.txt"}
-    try:
-        choice = int(input("Choose a file (1-4): "))
-        if choice <= 0 or choice >= 5:
-            raise KeyError
-    except (ValueError, KeyError):
-        print("Invalid choice. Please select a number between 1 and 4.")
-    else:
-        print(files[choice])
+    opt_out = True
+    while opt_out:
+        try:
+            option = int(input("Select a file to analyze (1-4): "))
+            if option <= 0 or option >= 5:
+                raise KeyError
+        except ValueError, KeyError:
+            print("Invalid option.")
+            continue
+        else:
+            print(files[option])
+            opt_out = False
 
 
 #path = WordAnalyzer("random.txt")
