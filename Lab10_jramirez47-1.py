@@ -37,8 +37,10 @@ class WordAnalyzer:
                             empty_dict[word] += 1
                         else:
                             empty_dict[word] = 1
-                print(empty_dict)
+            return True
+        else:
+            return False
 
-path = WordAnalyzer("rando.txt")
+path = WordAnalyzer("random.txt")
 path.process_file()
     
