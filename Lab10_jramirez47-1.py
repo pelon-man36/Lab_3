@@ -49,10 +49,19 @@ class WordAnalyzer:
             print(f"{key} :: {self.__dict[key]}")
 
 def main():
-    files = {"monte_cristo.txt", "princess_mars.txt", "treasure_island.txt", "Tarzan.txt"}
+    files = {1: "monte_cristo.txt", 2: "princess_mars.txt", 3: "Tarzan.txt", 4: "treasure_island.txt"}
+    try:
+        choice = int(input("Choose a file (1-4): "))
+        if choice <= 0 or choice >= 5:
+            raise KeyError
+    except (ValueError, KeyError):
+        print("Invalid choice. Please select a number between 1 and 4.")
+    else:
+        print(files[choice])
 
 
-path = WordAnalyzer("random.txt")
-path.process_file()
-path.print_report()
-    
+#path = WordAnalyzer("random.txt")
+#path.process_file()
+#path.print_report()
+
+main()
