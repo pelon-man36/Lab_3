@@ -13,8 +13,9 @@ class WordAnalyzer:
         self.file_path = Path(file_path)
 
     def process_file(self):
-        try:
-            self.file_path.exists()
-        except FileNotFoundError:
-            print(f"File not found")
+        content = self.file_path.exists()
+        
+
+path = WordAnalyzer("random.txt")
+path.process_file()
     
