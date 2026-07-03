@@ -48,6 +48,8 @@ class WordAnalyzer:
         for key in sorted_dict:
             print(f"{key} :: {self.__dict[key]}")
 
+def main():
+    
 
 path = WordAnalyzer("random.txt")
 path.process_file()
