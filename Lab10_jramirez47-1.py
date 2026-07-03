@@ -14,6 +14,7 @@ class WordAnalyzer:
 
     def process_file(self):
         content = self.file_path.exists()
+        punc_tuple = (".", ",", "!", "?", ";", ":", "-", "_", "'", '"', "(", ")", "[", "]", "{", "}", "/", "\\")
         if content:
             with self.file_path.open() as f:
                 lines = f.readlines()
