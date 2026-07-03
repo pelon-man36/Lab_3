@@ -77,6 +77,7 @@ def main():
                     opt_cont = False
                     opt_again = False
                 else:
+                    print(f"Processing file: {files[option]}\n")
                     print(files[option])
                     opt_out = False
                     path = WordAnalyzer(files[option])
@@ -96,6 +97,7 @@ def main():
                     raise ValueError
             except ValueError:
                 print("Invalid option.\n")
+    print("Thank you. Goodbye.")
             
 
 
@@ -103,4 +105,5 @@ def main():
 #path.process_file()
 #path.print_report()
 
-main()
+if __name__ == "__main__":
+    main()
